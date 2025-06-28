@@ -100,5 +100,39 @@ function updateFlashcardsDisplay() {
         `;
 
     flashcardsContainer.appendChild(flashcardElement);
+
+    const editBtn = flashcardElement.querySelector(".edit-btn");
+    const deleteBtn = flashcardElement.querySelector(".delete-btn");
+
+    editBtn.addEventListener("click", () => {
+      editFlashcard(card.id);
+    });
+
+    deleteBtn.addEventListener("click", () => {
+      deleteFlashcard(card.id);
+    });
   });
+}
+
+function editFlashcard(id) {
+  const cardIndex = flashcards.findIndex((card) => card.id === id);
+
+  const card = flashcards[cardIndex];
+  document.getElementById("flashcardTitle").value = card.title;
+  document.getElementById("flashcardFront").value = card.front;
+  document.getElementById("flashcardBack").value = card.back;
+
+  // Remove the card being edited
+  flashcards = flashcards.filter((c) => c.id !== id);
+  saveToLocalStorage();
+  updateFlashcardsDisplay();
+}
+
+function deleteFlashcard(id) {
+  if (confirm("Are you sure you want to delete this flashcard?")) {
+    flashcards = flashcards.filter((card) => card.id !== id);
+    saveToLocalStorage();
+    updateFlashcardsDisplay();
+    showToast("Flashcard deleted", "success");
+  }
 }
