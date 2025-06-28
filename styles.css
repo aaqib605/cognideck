@@ -169,6 +169,61 @@ textarea.form-control {
   gap: 1.5rem;
 }
 
+.flashcard {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.flashcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard-content {
+  padding: 1.5rem;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flashcard-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.flashcard-body {
+  color: #555;
+}
+
+.flashcard-actions {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.flashcard-actions button {
+  background: none;
+  border: none;
+  color: #777;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.flashcard-actions button:hover {
+  color: var(--primary);
+}
+
 .empty-state {
   text-align: center;
   padding: 3rem;
