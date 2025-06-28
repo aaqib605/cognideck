@@ -92,3 +92,61 @@ header {
 .btn-danger:hover {
   background-color: #d31667;
 }
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flashcard-form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
