@@ -281,3 +281,83 @@ textarea.form-control {
 .toast.error {
   background-color: var(--danger);
 }
+
+.study-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.study-mode.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.study-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 600px;
+  min-height: 400px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.study-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.study-card-front,
+.study-card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  padding: 2rem;
+  text-align: center;
+}
+
+.study-card-back {
+  transform: rotateY(180deg);
+}
+
+.study-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.study-card p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.close-study {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #777;
+  cursor: pointer;
+}
+
+.close-study:hover {
+  color: var(--danger);
+}

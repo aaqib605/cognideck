@@ -1,6 +1,8 @@
 // DOM Elements
 const saveFlashcardBtn = document.getElementById("saveFlashcardBtn");
 const statsDisplay = document.getElementById("statsDisplay");
+const closeStudyBtn = document.getElementById("closeStudy");
+const flipStudyCardBtn = document.getElementById("flipStudyCardBtn");
 const toast = document.getElementById("toast");
 
 // State
@@ -12,6 +14,8 @@ updateFlashcardsDisplay();
 
 // Event Listeners
 saveFlashcardBtn.addEventListener("click", saveFlashcard);
+closeStudyBtn.addEventListener("click", closeStudySession);
+flipStudyCardBtn.addEventListener("click", flipStudyCard);
 
 // Functions
 function saveFlashcard() {
@@ -103,6 +107,7 @@ function updateFlashcardsDisplay() {
 
     const editBtn = flashcardElement.querySelector(".edit-btn");
     const deleteBtn = flashcardElement.querySelector(".delete-btn");
+    const studyBtn = flashcardElement.querySelector(".study-btn");
 
     editBtn.addEventListener("click", () => {
       editFlashcard(card.id);
@@ -110,6 +115,10 @@ function updateFlashcardsDisplay() {
 
     deleteBtn.addEventListener("click", () => {
       deleteFlashcard(card.id);
+    });
+
+    studyBtn.addEventListener("click", () => {
+      startStudySession(card);
     });
   });
 }
@@ -135,4 +144,25 @@ function deleteFlashcard(id) {
     updateFlashcardsDisplay();
     showToast("Flashcard deleted", "success");
   }
+}
+
+function startStudySession(card) {
+  studyMode.classList.add("active");
+  updateStudyCard(card);
+}
+
+function updateStudyCard(card) {
+  y;
+  document.getElementById("studFrontTitle").textContent = card.title;
+  document.getElementById("studyFrontContent").textContent = card.front;
+  document.getElementById("studyBackContent").textContent = card.back;
+}
+
+function closeStudySession() {
+  studyMode.classList.remove("active");
+  studyCard.classList.remove("flipped");
+}
+
+function flipStudyCard() {
+  studyCard.classList.toggle("flipped");
 }
