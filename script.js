@@ -152,10 +152,9 @@ function startStudySession(card) {
 }
 
 function updateStudyCard(card) {
-  y;
-  document.getElementById("studFrontTitle").textContent = card.title;
-  document.getElementById("studyFrontContent").textContent = card.front;
-  document.getElementById("studyBackContent").textContent = card.back;
+  document.getElementById("studyFrontTitle").innerText = card.title;
+  document.getElementById("studyFrontContent").innerText = card.front;
+  document.getElementById("studyBackContent").innerText = card.back;
 }
 
 function closeStudySession() {
